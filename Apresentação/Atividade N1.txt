@@ -3,4 +3,4 @@ Olá, meu nome é Davi Augusto.
 Atualmente estou cursando o 3º ano do Ensino Médio Integrado com ênfase em Desenvolvimento de Sistemas. Trabalho como Jovem Aprendiz na área de Infraestrutura da empresa AMcom.
 
 Com o curso, espero desenvolver novas habilidades, aprimorar as competências que já possuo, expandir meu networking e, quem sabe, conquistar uma oportunidade profissional nessa área. Além disso, busco aprofundar meu entendimento técnico e prático para me tornar cada vez mais preparado para os desafios do mercado de tecnologia.
-Uma tecnologia que gostaria de aprofundar mais seria Hibernate/JPA e Spring Framework.
+Uma das tecnologias que tenho interesse em aprofundar é o Hibernate/JPA, além do Spring Framework, por serem amplamente utilizados no desenvolvimento back-end de aplicações Java. Também busco me familiarizar com outras ferramentas e tecnologias que estão em alta no mercado e que são adotadas por empresas atualmente, com o objetivo de me manter alinhado com as demandas do setor.
