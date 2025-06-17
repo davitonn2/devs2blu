@@ -1,0 +1,6 @@
+Olá, meu nome é Davi Augusto.
+
+Atualmente estou cursando o 3º ano do Ensino Médio Integrado com ênfase em Desenvolvimento de Sistemas. Trabalho como Jovem Aprendiz na área de Infraestrutura da empresa AMcom.
+
+Com o curso, espero desenvolver novas habilidades, aprimorar as competências que já possuo, expandir meu networking e, quem sabe, conquistar uma oportunidade profissional nessa área. Além disso, busco aprofundar meu entendimento técnico e prático para me tornar cada vez mais preparado para os desafios do mercado de tecnologia.
+Uma tecnologia que gostaria de aprofundar mais seria Hibernate/JPA e Spring Framework.
