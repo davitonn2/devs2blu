@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    font: 14px sans-serif;
+}
+
+header{
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+}
+
+h1{
+    color: aliceblue;
+    font-size: 20px;
+    padding: 20px;
+}
+
+ul{
+    color: rgb(255, 255, 255);
+    display: flex;
+    list-style: none;
+}
+
+li{
+    border-bottom: 5px solid black;
+    padding-right: 20px;
+    padding-top: 23px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+}
+
+li:hover{
+    border-bottom-color: rgb(184, 162, 108);
+    cursor: pointer;
+}
+
+form{
+    display: none;
+}
