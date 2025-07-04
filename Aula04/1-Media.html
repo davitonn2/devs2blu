@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo da Média</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+            margin: 20px;
+            height: 90vh;
+            background-color: #8800ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: #2a0c55;
+            padding: 20px;
+            border-radius: 25px;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 1);
+            text-align: center;
+        }
+
+        input,
+        button {
+            padding: 8px;
+            margin: 5px;
+        }
+
+        button {
+            background-color: #e100ff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4800ff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Cálculo da Média</h2>
+        <p>Informe as três notas do aluno:</p>
+        <input type="number" id="nota1" placeholder="Nota 1" step="0.1" min="0" max="10">
+        <input type="number" id="nota2" placeholder="Nota 2" step="0.1" min="0" max="10">
+        <input type="number" id="nota3" placeholder="Nota 3" step="0.1" min="0" max="10">
+        <button onclick="calcularMedia()">Calcular</button>
+        <p id="resultado"></p>
+    </div>
+    <script>
+        const inputs = document.querySelectorAll('input[type="number"]');
+        inputs.forEach(input => {
+            input.addEventListener('input', () => {
+                if (input.value > 10) input.value = 10;
+                if (input.value < 0) input.value = 0;
+            });
+        });
+
+        function calcularMedia() {
+            const nota1 = parseFloat(document.getElementById('nota1').value);
+            const nota2 = parseFloat(document.getElementById('nota2').value);
+            const nota3 = parseFloat(document.getElementById('nota3').value);
+            const resultado = document.getElementById('resultado');
+
+            if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3)) {
+                resultado.textContent = 'Por favor, preencha todas as notas.';
+                return;
+            }
+
+            const media = (nota1 + nota2 + nota3) / 3;
+            let situacao;
+            let cor;
+
+            if (media >= 7) {
+                situacao = 'Aprovado';
+                cor = 'green';
+            } else if (media >= 5) {
+                situacao = 'Recuperação';
+                cor = 'orange';
+            } else {
+                situacao = 'Reprovado';
+                cor = 'red';
+            }
+            resultado.textContent = `Média: ${media.toFixed(2)} - Situação: ${situacao}`;
+            resultado.style.color = cor;
+        }
+
+    </script>
+</body>
+
+</html>

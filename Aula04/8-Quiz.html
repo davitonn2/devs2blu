@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(145deg, #1e00ff, #6a00ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 400px;
+            color: #333;
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+        }
+
+        button {
+            padding: 12px 20px;
+            margin: 10px auto;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #161618;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            display: block;
+            width: 80%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+            transform: scale(1.03);
+        }
+
+        .alternativa {
+            display: block;
+            margin: 10px auto;
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background-color: #f8f8f8;
+            transition: background-color 0.3s;
+        }
+
+        .alternativa:hover {
+            background-color: #e6e6e6;
+        }
+
+        #pergunta {
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Quiz</h2>
+        <div id="pergunta"></div>
+        <button onclick="proximaPergunta()">Iniciar/Próxima</button>
+        <p id="resultado"></p>
+    </div>
+    <script>
+        // perguntas geradas pela Inteligência Artificial
+        const perguntas = [
+            {
+                pergunta: "Qual é o maior planeta do sistema solar?",
+                alternativas: ["Marte", "Júpiter", "Vênus", "Saturno"],
+                correta: 1
+            },
+            {
+                pergunta: "Quem descobriu a penicilina?",
+                alternativas: ["Louis Pasteur", "Alexander Fleming", "Marie Curie", "Thomas Edison"],
+                correta: 1
+            },
+            {
+                pergunta: "Qual é o rio mais longo do mundo?",
+                alternativas: ["Nilo", "Amazonas", "Yangtze", "Mississippi"],
+                correta: 1
+            },
+            {
+                pergunta: "Em que ano foi promulgada a Constituição Brasileira atual?",
+                alternativas: ["1985", "1986", "1988", "1990"],
+                correta: 2
+            },
+            {
+                pergunta: "Qual é a capital do Japão?",
+                alternativas: ["Tóquio", "Osaka", "Quioto", "Hiroshima"],
+                correta: 0
+            },
+            {
+                pergunta: "Qual elemento químico tem o símbolo Au?",
+                alternativas: ["Prata", "Ouro", "Cobre", "Alumínio"],
+                correta: 1
+            },
+            {
+                pergunta: "Quem escreveu 'A Moreninha'?",
+                alternativas: ["Machado de Assis", "José de Alencar", "Joaquim Manuel de Macedo", "Aluísio Azevedo"],
+                correta: 2
+            },
+            {
+                pergunta: "Qual é a fórmula da água?",
+                alternativas: ["CO2", "H2O", "O2", "H2SO4"],
+                correta: 1
+            },
+            {
+                pergunta: "Em que continente fica a Austrália?",
+                alternativas: ["Ásia", "Oceania", "África", "Antártida"],
+                correta: 1
+            },
+            {
+                pergunta: "Qual é o autor da teoria da relatividade?",
+                alternativas: ["Isaac Newton", "Galileu Galilei", "Albert Einstein", "Stephen Hawking"],
+                correta: 2
+            }
+        ];
+        let perguntasSelecionadas = [];
+        let perguntaAtual = 0;
+        let acertos = 0;
+
+        function proximaPergunta() {
+            const perguntaDiv = document.getElementById('pergunta');
+            const resultado = document.getElementById('resultado');
+            if (perguntaAtual === 0) {
+                perguntasSelecionadas = [];
+                resultado.textContent = ''; // Limpa o texto de resultado ao iniciar
+                while (perguntasSelecionadas.length < 5) {
+                    const idx = Math.floor(Math.random() * perguntas.length);
+                    if (!perguntasSelecionadas.includes(idx)) {
+                        perguntasSelecionadas.push(idx);
+                    }
+                }
+                acertos = 0;
+            }
+            if (perguntaAtual >= 5) {
+                resultado.textContent = `Quiz finalizado! Acertos: ${acertos}/5`;
+                perguntaAtual = 0;
+                perguntaDiv.innerHTML = '';
+                return;
+            }
+            const idx = perguntasSelecionadas[perguntaAtual];
+            const p = perguntas[idx];
+            let html = `<h3>${p.pergunta}</h3>`;
+            p.alternativas.forEach((alt, i) => {
+                html += `<button class="alternativa" onclick="verificarResposta(${i}, ${p.correta})">${alt}</button>`;
+            });
+            perguntaDiv.innerHTML = html;
+            perguntaAtual++;
+        }
+
+        function verificarResposta(selecionada, correta) {
+            if (selecionada === correta) acertos++;
+            proximaPergunta();
+        }
+    </script>
+</body>
+
+</html>

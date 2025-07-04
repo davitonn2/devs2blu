@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+            margin: 20px;
+            height: 90vh;
+            background-color: #8800ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background-color: #2a0c55;
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 1);
+            text-align: center;
+        }
+        input, button {
+            padding: 8px;
+            margin: 5px;
+        }
+        button {
+            background-color: #e100ff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #8800ff;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tabuada</h1>
+        <input type="number" id="numeroTabuada" placeholder="Digite um número">
+        <button onclick="gerarTabuada()">Gerar Tabuada</button>
+        <div id="resultado"></div>
+    </div>
+    <script>
+        function gerarTabuada() {
+            const numero = parseInt(document.getElementById('numeroTabuada').value);
+            const resultado = document.getElementById('resultado');
+            if (isNaN(numero)) {
+                resultado.textContent = 'Por favor, insira um número válido.';
+                return;
+            }
+            let html = `<h2>Tabuada do ${numero}</h2>`;
+            for (let i = 1; i <= 10; i++) {
+                html += `${numero} x ${i} = ${numero * i}<br>`;
+            }
+            resultado.innerHTML = html;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivinha o Número</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+            margin: 20px;
+            height: 90vh;
+            background-color: #8800ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background-color: #2a0c55;
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 1);
+            text-align: center;
+        }
+        input, button {
+            padding: 8px;
+            margin: 5px;
+        }
+        button {
+            background-color: #e100ff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #8800ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Adivinha o Número</h2>
+        <input type="number" id="chute" placeholder="Digite um número (1-100)">
+        <button onclick="verificarChute()">Verificar</button>
+        <p id="dica"></p>
+        <p id="tentativas"></p>
+    </div>
+    <script>
+        let numeroSecreto = Math.floor(Math.random() * 100) + 1;
+        let tentativas = 0;
+        function verificarChute() {
+            const chute = parseInt(document.getElementById('chute').value);
+            const dica = document.getElementById('dica');
+            const tentativasDisplay = document.getElementById('tentativas');
+            tentativas++;
+            if (isNaN(chute)) {
+                dica.textContent = 'Por favor, insira um número válido.';
+                return;
+            }
+            if (chute === numeroSecreto) {
+                dica.textContent = `Parabéns! Você acertou em ${tentativas} tentativas!` + 
+                " Clique novamente no botão para jogar denovo!";
+                tentativasDisplay.textContent = '';
+                numeroSecreto = Math.floor(Math.random() * 100) + 1;
+                tentativas = 0;
+                return;
+            }
+            const diferenca = Math.abs(chute - numeroSecreto);
+            let mensagem;
+            if (diferenca <= 5) mensagem = 'Quase!';
+            else if (diferenca <= 10) mensagem = 'Perto!';
+            else if (diferenca <= 20) mensagem = 'Longe!';
+            else mensagem = 'Muito longe!';
+            dica.textContent = mensagem;
+            tentativasDisplay.textContent = `Tentativas: ${tentativas}`;
+        }
+    </script>
+</body>
+</html>

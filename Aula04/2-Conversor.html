@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+            margin: 20px;
+            height: 90vh;
+            background-color: #8800ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: #2a0c55;
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 1);
+            text-align: center;
+        }
+
+        input, select, button {
+            padding: 8px;
+            margin: 5px;
+        }
+
+        button {
+            background-color: #e100ff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #8800ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Conversor de Moedas</h2>
+        <input type="number" id="valorReal" placeholder="Valor em Reais" step="0.01">
+        <select id="tipoConversao">
+            <option value="dolar">Real para Dolar</option>
+            <option value="euro">Real para Euro</option>
+            <option value="libra">Real para Libra</option>
+            <option value="bitcoin">Real para bitcoin</option>
+        </select>
+        <button onclick="converterMoeda()">Converter</button>
+            <p id="resultado"></p>
+    </div>
+    <script>
+        function converterMoeda() {
+            const valor = parseFloat(document.getElementById(`valorReal`).value)
+            const tipo = document.getElementById(`tipoConversao`).value
+            const resultado = document.getElementById('resultado');
+            const taxas = {
+                dolar: 5.5,  // Taxas fictícias
+                euro: 6.0,
+                libra: 7.0,
+                bitcoin: 593552.67
+            };
+            if (isNaN(valor)) {
+                resultado.textContent = 'Por favor, insira um valor válido.';
+                return;
+            }
+            const convertido = valor / taxas[tipo];
+            resultado.textContent = `${valor.toFixed(2)} BRL = ${convertido.toFixed(2)} ${tipo.toUpperCase()}`;
+        }
+    </script>
+
+    
+</body>
+</html>

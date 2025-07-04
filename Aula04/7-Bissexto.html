@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bissexto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+            margin: 20px;
+            height: 85vh;
+            background-color: #8800ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: #b25aff;
+            border: 3px solid black;
+            border-radius: 25px;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 1);
+            padding: 50px;
+            text-align: center;
+        }
+
+        input, button {
+            padding: 8px;
+            margin: 5px;
+            border-radius: 25px;
+        }
+
+        button {
+            background-color: rgb(65, 57, 57);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: rgb(83, 73, 73);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Ano Bissexto</h2>
+        <input type="number" id="ano" placeholder="Digite o ano" min="0">
+        <button onclick="verificarBissexto()">Verificar</button>
+        <p id="resultado"></p>
+    </div>
+    <script>
+        function verificarBissexto() {
+            const ano = parseInt(document.getElementById('ano').value);
+            const resultado = document.getElementById('resultado');
+            if (isNaN(ano)) {
+                resultado.textContent = 'Por favor, insira um ano válido.';
+                return;
+            }
+            const bissexto = (ano % 4 === 0 && ano % 100 !== 0) || (ano % 400 === 0);
+            resultado.textContent = bissexto ? `${ano} é bissexto.` : `${ano} não é bissexto.`;
+        }
+    </script>
+</body>
+</html>
