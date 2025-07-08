@@ -8,38 +8,46 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            color: #ffffff;
-            margin: 20px;
-            height: 85vh;
-            background-color: #8800ff;
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(145deg, #1e00ff, #ff0000);
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
         .container {
-            background-color: #b25aff;
-            border: 3px solid black;
-            border-radius: 25px;
-            box-shadow: 5px 5px 5px rgba(0, 0, 0, 1);
-            padding: 50px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 400px;
+            color: #333;
+            transition: transform 0.3s ease;
         }
 
-        input, button {
-            padding: 8px;
-            margin: 5px;
-            border-radius: 25px;
+        .container:hover {
+            transform: scale(1.02);
         }
 
         button {
-            background-color: rgb(65, 57, 57);
-            color: white;
+            padding: 12px 20px;
+            margin: 10px auto;
+            background-color: #4CAF50;
             border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #161618;
             cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            display: block;
+            width: 80%;
         }
 
         button:hover {
-            background-color: rgb(83, 73, 73);
+            background-color: #45a049;
+            transform: scale(1.03);
         }
     </style>
 </head>
