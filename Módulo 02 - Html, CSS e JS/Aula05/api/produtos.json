@@ -1,0 +1,58 @@
+{
+  "produtos": [
+    {
+      "id": "37ec",
+      "nome": "Monitor Gamer Vpower",
+      "marca": "LG",
+      "valor": 2400
+    },
+    {
+      "id": "9032",
+      "nome": "Cadeira Gamer Vermelha",
+      "marca": "Ajazz",
+      "valor": 400
+    },
+    {
+      "id": "a003",
+      "nome": "Mouse Gamer XR11",
+      "marca": "Attack Shark",
+      "valor": "200"
+    },
+    {
+      "id": "1aa0",
+      "nome": "Mouse Pad Gamer 30X60cm",
+      "marca": "Aliexpress",
+      "valor": "50"
+    },
+    {
+      "id": "d4e1",
+      "nome": "Teclado Mecânico RGB",
+      "marca": "Redragon",
+      "valor": "250"
+    },
+    {
+      "id": "a3c3",
+      "nome": "Monitor Curvo 27''",
+      "marca": "Samsung",
+      "valor": "1450"
+    },
+    {
+      "id": "105a",
+      "nome": "Headset Gamer Surround 7.1",
+      "marca": "HyperX",
+      "valor": "380"
+    },
+    {
+      "id": "950e",
+      "nome": "Cadeira Gamer Reclinável",
+      "marca": "ThunderX3",
+      "valor": "1200"
+    },
+    {
+      "id": "0665",
+      "nome": "Webcam Full HD 1080p",
+      "marca": "Logitech",
+      "valor": "320"
+    }
+  ]
+}
