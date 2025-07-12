@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Endereços</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="container mx-auto p-4 max-w-4xl">
+        <h1 class="text-3xl font-bold mb-6 text-center">Gerenciador de Endereços</h1>
+
+        <!-- Formulário -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <form id="formularioEndereco" class="space-y-4">
+                <input type="hidden" id="id">
+                <div>
+                    <label for="nome" class="block text-sm font-medium text-gray-700">Nome</label>
+                    <input type="text" id="nome" class="mt-1 p-2 w-full border rounded-md" required>
+                </div>
+                <div>
+                    <label for="cep" class="block text-sm font-medium text-gray-700">CEP</label>
+                    <input type="text" id="cep" class="mt-1 p-2 w-full border rounded-md" maxlength="9" required>
+                </div>
+                <div>
+                    <label for="estado" class="block text-sm font-medium text-gray-700">Estado</label>
+                    <input type="text" id="estado" class="mt-1 p-2 w-full border rounded-md" readonly>
+                </div>
+                <div>
+                    <label for="cidade" class="block text-sm font-medium text-gray-700">Cidade</label>
+                    <input type="text" id="cidade" class="mt-1 p-2 w-full border rounded-md" readonly>
+                </div>
+                contain
+                <div>
+                    <label for="bairro" class="block text-sm font-medium text-gray-700">Bairro</label>
+                    <input type="text" id="bairro" class="mt-1 p-2 w-full border rounded-md" readonly>
+                </div>
+                <div>
+                    <label for="logradouro" class="block text-sm font-medium text-gray-700">Logradouro</label>
+                    <input type="text" id="logradouro" class="mt-1 p-2 w-full border rounded-md" readonly>
+                </div>
+                <div class="flex space-x-4">
+                    <button type="submit" id="botaoSalvar" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Salvar</button>
+                    <button type="button" id="botaoCancelar" class="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600 oculto">Cancelar</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Lista de Endereços -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-4">Lista de Endereços</h2>
+            <table class="w-full table-auto">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th class="px-4 py-2">Nome</th>
+                        <th class="px-4 py-2">CEP</th>
+                        <th class="px-4 py-2">Estado</th>
+                        <th class="px-4 py-2">Cidade</th>
+                        <th class="px-4 py-2">Bairro</th>
+                        <th class="px-4 py-2">Logradouro</th>
+                        <th class="px-4 py-2">Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelaEnderecos"></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

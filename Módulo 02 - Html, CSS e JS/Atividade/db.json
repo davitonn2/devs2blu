@@ -1,0 +1,13 @@
+{
+  "enderecos": [
+    {
+      "id": "e2a8",
+      "nome": "davi augusto",
+      "cep": "89035-600",
+      "estado": "SC",
+      "cidade": "Blumenau",
+      "bairro": "Vila Nova",
+      "logradouro": "Rua Casemiro de Abreu"
+    }
+  ]
+}
