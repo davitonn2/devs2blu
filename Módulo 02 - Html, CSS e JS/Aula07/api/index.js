@@ -1,31 +1,23 @@
-//Importar dependencia/pacote do Express
-const express = require('express')
+// Importar dependência/pacote do Express
+const express = require('express');
 
-//Obejto Express (Manipular notas e o servidor)
-const app = express()
+// Importar dependência/pacote do CORS
+const cors = require('cors');
 
-//Habilitar receber objets JSON nas requisições
+// Objeto Express (Manipular rotas e o servidor)
+const app = express();
+
+// Adicionar CORS
+app.use(cors());
+
+// Habilitar receber objeto JSON nas requisições
 app.use(express.json());
 
-//Vetor para armazenar dados pessoas
-let vetor = [
-    {id:1, nome: 'Alice', idade: 23},
-    {id:2, nome: 'Davi', idade: 17}
-];
+// Referenciar arquivo de rotas
+const pessoa = require('./rotas/pessoa');
 
-//Porta
-const port = 3000
+// Adicionar rotas na aplicação
+app.use('/', pessoa);
 
-//Rota para efetuar uma requisição GET
-app.get('/minhaRota', (req, res) => {
-  res.status(201).json(vetor);
-})
-
-//Rota para efetuar uma requisição POST
-app.post('/', (req, res) => {
-    res.send(req.body);
-})
-
-
-//Servidor
-app.listen(port)
+// Servidor
+app.listen(3000);
