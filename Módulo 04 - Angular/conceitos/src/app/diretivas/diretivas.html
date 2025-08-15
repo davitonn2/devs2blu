@@ -1,0 +1,72 @@
+<h1 [ngStyle]="{'color':corFonte, 'background-color':corFundo}">Utilizando o ngStyle</h1>
+<h1 [ngStyle]="estilo">Utilizando o ngStyle</h1>
+<button (click)="alterarEstilo()">Alterar estilo</button>
+
+<hr>
+
+@for (aluno of alunos; track $index) {
+    <p [ngClass]="aluno">{{aluno}}</p>
+}
+
+<h1 eventoMouse>Passe o cursor aqui</h1>
+
+
+
+
+<!-- Exercicio 01-->
+ <h2>Cálculo de Média</h2>
+
+<label>Nota 1:
+  <input type="number" [(ngModel)]="nota1" min="0" max="10">
+</label>
+<br>
+
+<label>Nota 2:
+  <input type="number" [(ngModel)]="nota2" min="0" max="10">
+</label>
+<br>
+
+<label>Nota 3:
+  <input type="number" [(ngModel)]="nota3" min="0" max="10">
+</label>
+<br>
+
+<button (click)="calcularMedia()">Calcular</button>
+
+@if (media !== null) {
+  <p>Média: {{ media.toFixed(2) }}</p>
+  <p [ngClass]="{'aprovado': situacao === 'Aprovado', 'reprovado': situacao === 'Reprovado'}">
+    Situação: {{ situacao }}
+  </p>
+}
+<p>Total de aprovados: {{ aprovados }}</p>
+<p>Total de reprovados: {{ reprovados }}</p>
+
+<hr>
+
+<h2>Conversor de Moedas</h2>
+
+<label>Valor em Reais (R$):
+  <input type="number" [(ngModel)]="valorReal" min="0">
+</label>
+<br>
+
+<label>Selecione a moeda:
+  <select [(ngModel)]="moeda">
+    <option value="">-- Escolha --</option>
+    <option value="Dólar">Dólar</option>
+    <option value="Euro">Euro</option>
+    <option value="Libra">Libra</option>
+    <option value="Iene">Iene</option>
+    <option value="Bitcoin">Bitcoin</option>
+    <option value="Ethereum">Ethereum</option>
+    
+  </select>
+</label>
+<br>
+
+<button (click)="converter()">Converter</button>
+
+@if (resultado !== null) {
+  <p>{{ valorReal }} Reais = {{ resultado }} {{ moeda }}</p>
+}
