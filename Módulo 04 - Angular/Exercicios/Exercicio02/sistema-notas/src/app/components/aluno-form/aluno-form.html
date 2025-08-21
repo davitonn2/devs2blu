@@ -1,0 +1,41 @@
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header">
+      <h3>Cadastro de Notas</h3>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="alunoForm" (ngSubmit)="adicionarAluno()">
+        <div class="mb-3">
+          <label for="nome" class="form-label">Nome do Aluno</label>
+          <input type="text" id="nome" class="form-control" formControlName="nome">
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="nota1" class="form-label">Nota 1</label>
+            <input type="number" id="nota1" class="form-control" formControlName="nota1" min="0" max="10" step="0.1">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="nota2" class="form-label">Nota 2</label>
+            <input type="number" id="nota2" class="form-control" formControlName="nota2" min="0" max="10" step="0.1">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="alunoForm.invalid">Adicionar Aluno</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="card mt-4" *ngIf="alunos.length > 0">
+    <div class="card-header">
+      <h3>Lista de Alunos</h3>
+    </div>
+    <div class="card-body">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let aluno of alunos">
+          <strong>Nome:</strong> {{ aluno.nome }} <br>
+          <strong>Notas:</strong> {{ aluno.nota1 }} ; {{ aluno.nota2 }} <br>
+          <strong>Média:</strong> {{ [aluno.nota1, aluno.nota2] | media }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
