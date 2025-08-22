@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand">To-do List de {{ currentUser?.nome }}</a>
+    <button class="btn btn-outline-light" (click)="authService.logout()">Sair</button>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <div class="card mb-4">
+    <div class="card-body">
+      <h4 class="card-title">Nova Tarefa</h4>
+      <form [formGroup]="taskForm" (ngSubmit)="addTask()">
+        <div class="row">
+          <div class="col-md-6 mb-2">
+            <input type="text" class="form-control" placeholder="Descrição da tarefa" formControlName="descricao">
+          </div>
+          <div class="col-md-4 mb-2">
+            <input type="datetime-local" class="form-control" formControlName="dataFinal">
+          </div>
+          <div class="col-md-2 d-grid">
+            <button type="submit" class="btn btn-primary" [disabled]="taskForm.invalid">Adicionar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <h4>Minhas Tarefas</h4>
+  <ul class="list-group">
+    <li *ngFor="let task of tasks" class="list-group-item d-flex justify-content-between align-items-center">
+      <div>
+        <input class="form-check-input me-2" type="checkbox" [checked]="task.concluida" (change)="toggleConcluida(task)">
+        <span [class.text-decoration-line-through]="task.concluida">
+          {{ task.descricao }} - Entregar até: {{ task.dataFinal | date:'dd/MM/yyyy HH:mm' }}
+        </span>
+      </div>
+      <button class="btn btn-danger btn-sm" (click)="deleteTask(task.id)">Remover</button>
+    </li>
+  </ul>
+  <p *ngIf="tasks.length === 0" class="text-muted mt-3">Você ainda não tem tarefas. Adicione uma acima!</p>
+</div>
