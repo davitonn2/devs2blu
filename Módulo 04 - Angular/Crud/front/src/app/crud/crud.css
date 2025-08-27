@@ -1,0 +1,16 @@
+.form {
+    width: 50%;
+    margin: 30px auto;
+}
+
+.button {
+    margin-left: 10px;
+}
+
+.input {
+    width: 100%;
+}
+
+.ocultarId {
+    display: none;
+}

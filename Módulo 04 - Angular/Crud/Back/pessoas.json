@@ -1,0 +1,24 @@
+{
+  "pessoas": [
+    {
+      "id": "3f43f",
+      "nome": "João Silva",
+      "cidade": "São Paulo"
+    },
+    {
+      "id": "7g56h",
+      "nome": "Maria Oliveira",
+      "cidade": "Rio de Janeiro"
+    },
+    {
+      "id": "9j78k",
+      "nome": "Carlos Souza",
+      "cidade": "Belo Horizonte"
+    },
+    {
+      "id": "f098",
+      "nome": "Davi Lindão",
+      "cidade": "Blumenau"
+    }
+  ]
+}
