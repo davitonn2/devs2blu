@@ -6,25 +6,25 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.dialect.function.DB2SubstringFunction;
 
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Artista {
+public class Premio {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String nome;
-    private String nacionalidade;
+    private String categoria;
 
-    @ManyToMany(mappedBy = "artistas")
+    @ManyToMany(mappedBy = "premios")
     @JsonIgnore
-    private List<Filme> filmes;
+    private List<Diretor> diretores;
 }

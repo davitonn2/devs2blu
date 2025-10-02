@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.dialect.function.DB2SubstringFunction;
 
 import java.util.List;
 
@@ -15,16 +14,20 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Artista {
+public class Diretor {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String nome;
     private String nacionalidade;
 
-    @ManyToMany(mappedBy = "artistas")
-    @JsonIgnore
-    private List<Filme> filmes;
+    @ManyToMany
+    @JoinTable(
+            name = "diretores_premio",
+            joinColumns = @JoinColumn(name = "diretor_id"),
+            inverseJoinColumns = @JoinColumn(name = "premio_id")
+    )
+    private List<Premio> premios;
 }
